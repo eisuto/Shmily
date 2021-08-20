@@ -1,0 +1,12 @@
+server:
+  port: 8001
+
+# 服务提供者
+spring:
+  application:
+    name: eureka-producer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka # 指定服务注册中心

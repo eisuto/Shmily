@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TemplatesSettings">
+    <option name="templateConfigs">
+      <TemplateContext>
+        <option name="generateConfig">
+          <GenerateConfig>
+            <option name="annotationType" value="NONE" />
+            <option name="basePackage" value="generator" />
+            <option name="basePath" value="src/main/java" />
+            <option name="domainObjectName" value="ShyRole" />
+            <option name="encoding" value="UTF-8" />
+            <option name="extraTemplateNames">
+              <list>
+                <option value="mapperXml" />
+              </list>
+            </option>
+            <option name="moduleName" value="admin-user" />
+            <option name="modulePath" value="$PROJECT_DIR$/admin-user" />
+            <option name="needToStringHashcodeEquals" value="true" />
+            <option name="needsComment" value="true" />
+            <option name="relativePackage" value="domain" />
+            <option name="rootClass" value="" />
+            <option name="tableName" value="shy_role" />
+            <option name="targetProject" value="$PROJECT_DIR$" />
+            <option name="templatesName" value="default-empty" />
+            <option name="useLombokPlugin" value="true" />
+          </GenerateConfig>
+        </option>
+        <option name="projectPath" value="$PROJECT_DIR$" />
+      </TemplateContext>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poi.mapper.ShyCompetenceMapper">
+
+    <resultMap type="ShyCompetence" id="ShyCompetenceResult">
+        <result property="id" column="id"/>
+        <result property="fatherId" column="father_id"/>
+        <result property="name" column="name"/>
+        <result property="icon" column="icon"/>
+        <result property="order" column="order"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+    <sql id="selectShyCompetenceVo">
+        select id, father_id, name, icon, `order`, status, create_time
+        from shy_competence
+    </sql>
+
+    <select id="comps" parameterType="ShyRole" resultMap="ShyCompetenceResult">
+        SELECT c.id,c.name FROM
+            shy_role r
+                INNER JOIN shy_competence_role_relation cr
+                           ON r.id = cr.role_id
+                INNER JOIN shy_competence c
+                           ON c.id = cr.comp_id
+        WHERE cr.role_id = #{roleId}
+    </select>
+
+    <select id="selectShyCompetenceList" parameterType="ShyCompetence" resultMap="ShyCompetenceResult">
+        <include refid="selectShyCompetenceVo"/>
+        <where>
+            <if test="id != null ">and id = #{id}</if>
+            <if test="fatherId != null ">and father_id = #{fatherId}</if>
+            <if test="name != null  and name != ''">and name like concat('%', #{name}, '%')</if>
+            <if test="icon != null  and icon != ''">and icon = #{icon}</if>
+            <if test="order != null  and order != ''">and order = #{order}</if>
+            <if test="status != null ">and status = #{status}</if>
+        </where>
+        order by `order`
+    </select>
+
+    <select id="selectShyCompetenceById" parameterType="Integer" resultMap="ShyCompetenceResult">
+        <include refid="selectShyCompetenceVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertShyCompetence" parameterType="ShyCompetence">
+        insert into shy_competence
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="fatherId != null">father_id,</if>
+            <if test="name != null">name,</if>
+            <if test="icon != null">icon,</if>
+            <if test="order != null">order,</if>
+            <if test="status != null">status,</if>
+            <if test="createTime != null">create_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="fatherId != null">#{fatherId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="icon != null">#{icon},</if>
+            <if test="order != null">#{order},</if>
+            <if test="status != null">#{status},</if>
+            <if test="createTime != null">#{createTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateShyCompetence" parameterType="ShyCompetence">
+        update shy_competence
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="fatherId != null">father_id = #{fatherId},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="icon != null">icon = #{icon},</if>
+            <if test="order != null">`order` = #{order},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteShyCompetenceById" parameterType="Integer">
+        delete
+        from shy_competence
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteShyCompetenceByIds" parameterType="String">
+        delete from shy_competence where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

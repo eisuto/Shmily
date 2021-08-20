@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ed41dd97-0bab-4665-a18a-297f8602ac8b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1v6mAA3i8nWtGlHlC1vBfrSg72X" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sys-base/src/main/resources/mapper" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.run.dashboard.notification" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Project\shmily\sys-base\src\main\resources\mapper" />
+      <recent name="C:\Project\shmily\sys-base\src\main\java\com\poi\domain" />
+      <recent name="C:\Project\shmily\sys-base\src\main\java\com\poi\mapper" />
+      <recent name="C:\Project\shmily\admin-user\src\main\resources" />
+      <recent name="C:\Project\shmily\admin-user\src\main\java\com\poi\adminuser\config" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Project\shmily\admin-user\src\main\java\com\poi\adminuser\controller" />
+      <recent name="C:\Project\shmily\admin-user\src\main\java\com\poi\adminuser\service\impl" />
+      <recent name="C:\Project\shmily\admin-user\src\main\java\com\poi\adminuser\service" />
+      <recent name="C:\Project\shmily\sys-base\src\main\java\com\poi\domain" />
+      <recent name="C:\Project\shmily\sys-base\src\main\java\com\poi\mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.poi.adminuser.config" />
+      <recent name="com.poi.adminuser.controller" />
+      <recent name="com.poi.adminuser.service.impl" />
+      <recent name="com.poi.adminuser.service" />
+      <recent name="utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Eureka服务">
+    <configuration name="EmailUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.poi.uitls.EmailUtils" />
+      <module name="sys-base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.poi.uitls.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="管理侧-用户服务" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="admin-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.poi.adminuser.AdminUserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="用户侧-用户服务" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="api-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shmily.apiuser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.shmily.apiuser.ApiUserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="用户侧-用户服务" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="api-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shmily.apiuser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.shmily.apiuser.ApiUserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="用户侧-用户服务" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="api-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.shmily.apiuser.ApiUserApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="api-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.shmily.apiuser.ApiUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Eureka服务" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.poi.eurekaserver.EurekaServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.EmailUtils" />
+      <item itemvalue="Spring Boot.管理侧-用户服务" />
+      <item itemvalue="Spring Boot.Eureka服务" />
+      <item itemvalue="Spring Boot.ApiUserApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.EmailUtils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed41dd97-0bab-4665-a18a-297f8602ac8b" name="Default Changelist" comment="" />
+      <created>1625890768749</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625890768749</updated>
+      <workItem from="1625890770822" duration="8596000" />
+      <workItem from="1625922746276" duration="1731000" />
+      <workItem from="1625963089116" duration="626000" />
+      <workItem from="1625986457054" duration="2580000" />
+      <workItem from="1626007949686" duration="1484000" />
+      <workItem from="1626009946601" duration="899000" />
+      <workItem from="1626096502309" duration="1457000" />
+      <workItem from="1626143688842" duration="2821000" />
+      <workItem from="1626168963410" duration="7379000" />
+      <workItem from="1626228564529" duration="8072000" />
+      <workItem from="1626573541020" duration="2942000" />
+      <workItem from="1627093670532" duration="476000" />
+      <workItem from="1627200842239" duration="628000" />
+      <workItem from="1627350974748" duration="1516000" />
+      <workItem from="1627352697142" duration="1688000" />
+      <workItem from="1627378157852" duration="972000" />
+      <workItem from="1627384327529" duration="6092000" />
+      <workItem from="1627547990553" duration="760000" />
+      <workItem from="1627647268114" duration="4631000" />
+      <workItem from="1627732432883" duration="1222000" />
+      <workItem from="1628041159913" duration="1106000" />
+      <workItem from="1628061002637" duration="935000" />
+      <workItem from="1628125570369" duration="3511000" />
+      <workItem from="1628303327851" duration="15124000" />
+      <workItem from="1628388738195" duration="1484000" />
+      <workItem from="1628406628636" duration="1994000" />
+      <workItem from="1628475668553" duration="5007000" />
+      <workItem from="1628555432955" duration="9479000" />
+      <workItem from="1628731174870" duration="12218000" />
+      <workItem from="1628768571591" duration="638000" />
+      <workItem from="1628817504194" duration="3500000" />
+      <workItem from="1628834760069" duration="5247000" />
+      <workItem from="1628904972001" duration="6371000" />
+      <workItem from="1628942087617" duration="1324000" />
+      <workItem from="1628995876427" duration="5902000" />
+      <workItem from="1629006216349" duration="7305000" />
+      <workItem from="1629030105377" duration="692000" />
+      <workItem from="1629110804376" duration="1930000" />
+      <workItem from="1629252961203" duration="5486000" />
+      <workItem from="1629379181059" duration="1101000" />
+      <workItem from="1629423980466" duration="1235000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/admin-user/src/main/java/com/poi/adminuser/service/impl/AdminUserServiceImpl.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

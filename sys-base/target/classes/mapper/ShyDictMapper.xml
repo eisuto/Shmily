@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.poi.mapper.ShyDictMapper">
+
+    <resultMap type="ShyDict" id="ShyDictResult">
+        <result property="id"    column="id"    />
+        <result property="typeName"    column="type_name"    />
+        <result property="typeValue"    column="type_value"    />
+        <result property="text"    column="text"    />
+        <result property="value"    column="value"    />
+        <result property="status"    column="status"    />
+        <result property="remark"    column="remark"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="delFlag"    column="del_flag"    />
+    </resultMap>
+
+    <sql id="selectShyDictVo">
+        select id, type_name, type_value, text, value, status, remark, create_time, del_flag from shy_dict
+    </sql>
+
+    <select id="selectShyDictList" parameterType="ShyDict" resultMap="ShyDictResult">
+        <include refid="selectShyDictVo"/>
+        <where>
+            <if test="id != null "> and id = #{id}</if>
+            <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="typeValue != null  and typeValue != ''"> and type_value = #{typeValue}</if>
+            <if test="text != null  and text != ''"> and text = #{text}</if>
+            <if test="value != null  and value != ''"> and value = #{value}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="delFlag != null "> and del_flag = #{delFlag}</if>
+            <if test="keyWord != null and keyWord !=''">
+                AND CONCAT(type_name, type_value,text,value,id) LIKE CONCAT('%',#{keyWord},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="selectShyDictById" parameterType="Integer" resultMap="ShyDictResult">
+        <include refid="selectShyDictVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertShyDict" parameterType="ShyDict" useGeneratedKeys="true" keyProperty="id">
+        insert into shy_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="typeName != null">type_name,</if>
+            <if test="typeValue != null">type_value,</if>
+            <if test="text != null">text,</if>
+            <if test="value != null">value,</if>
+            <if test="status != null">status,</if>
+            <if test="remark != null">remark,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="delFlag != null">del_flag,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="typeName != null">#{typeName},</if>
+            <if test="typeValue != null">#{typeValue},</if>
+            <if test="text != null">#{text},</if>
+            <if test="value != null">#{value},</if>
+            <if test="status != null">#{status},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+        </trim>
+    </insert>
+
+    <update id="updateShyDict" parameterType="ShyDict">
+        update shy_dict
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="typeValue != null">type_value = #{typeValue},</if>
+            <if test="text != null">text = #{text},</if>
+            <if test="value != null">value = #{value},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteShyDictById" parameterType="Integer">
+        delete from shy_dict where id = #{id}
+    </delete>
+
+    <delete id="deleteShyDictByIds" parameterType="String">
+        delete from shy_dict where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
