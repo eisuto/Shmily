@@ -17,10 +17,24 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class ShyArticle extends BaseForm {
     private static final long serialVersionUID = 1L;
 
+
+    /**
+     * 发推者 头像地址
+     */
+    private String avatarUrl;
+
+    /**
+     * 发推者 昵称
+     */
+    private String nikeName;
+
+    /**
+     * id
+     */
     private Integer id;
 
     /**
-     * 发推用户id
+     * 发推/点赞/评论/转发 用户id
      */
     private Integer userId;
 

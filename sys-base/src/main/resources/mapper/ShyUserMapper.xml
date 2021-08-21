@@ -49,6 +49,11 @@
         from shy_user
     </sql>
 
+    <insert id="follow">
+        insert into shy_user_relation
+        set user_id = #{userId},operate_id = #{operateId},status = #{status}
+    </insert>
+
     <delete id="clearRole">
         delete
         from shy_user_role_relation

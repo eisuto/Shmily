@@ -17,6 +17,11 @@
         <result property="status" column="status"/>
         <result property="createTime" column="create_time"/>
         <result property="delFlag" column="del_flag"/>
+        <!--        包含的用户信息-->
+        <result property="avatarUrl" column="avatar_url"/>
+        <result property="nikeName" column="nike_name"/>
+
+
     </resultMap>
 
     <sql id="selectShyArticleVo">
@@ -53,6 +58,42 @@
             </if>
         </where>
     </select>
+
+    <insert id="operate">
+        insert into shy_article_operate
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">article_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="type != null">type,</if>
+            <if test="comment != null">comment,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="articleId != null">#{articleId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="type != null">#{type},</if>
+            <if test="comment != null">#{comment},</if>
+        </trim>
+    </insert>
+
+    <select id="selectFollows" parameterType="ShyUser" resultMap="ShyArticleResult">
+        SELECT a.id,
+               a.user_id,
+               u.avatar_url,
+               u.nike_name,
+               a.info,
+               a.collect_num,
+               a.comment_num,
+               a.transpond_num,
+               a.love_num,
+               a.create_time
+        FROM `shy_user_relation` ur
+                 LEFT JOIN `shy_article` a ON ur.operate_id = a.user_id
+                 LEFT JOIN `shy_user` u ON a.user_id = u.id
+        WHERE ur.user_id = #{id}
+          AND (ur.`status` = 2 OR ur.`status` = 3)
+        ORDER BY a.create_time ASC
+    </select>
+
 
     <select id="selectShyArticleById" parameterType="Integer" resultMap="ShyArticleResult">
         <include refid="selectShyArticleVo"/>

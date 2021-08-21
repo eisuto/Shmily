@@ -3,6 +3,7 @@ package com.poi.mapper;
 
 import com.poi.domain.ShyUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,8 +17,24 @@ import java.util.List;
 @Mapper
 public interface ShyUserMapper {
 
+
+    /**
+     * 注册两个用户的关系
+     *
+     * @param userId
+     * @param followId
+     * @param status   目标为粉丝1，目标为关注的人2，互关3
+     * @return
+     */
+    public int follow(
+            @Param("userId") Long userId,
+            @Param("operateId") Long followId,
+            @Param("status") Integer status
+    );
+
     /**
      * 清除此用户下的角色信息
+     *
      * @param user
      * @return
      */
@@ -25,6 +42,7 @@ public interface ShyUserMapper {
 
     /**
      * 为用户设置角色 中间表
+     *
      * @param user
      * @return
      */

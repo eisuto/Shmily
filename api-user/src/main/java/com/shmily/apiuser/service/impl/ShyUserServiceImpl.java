@@ -60,6 +60,7 @@ public class ShyUserServiceImpl implements ShyUserService
             user.setUpdateTime(new Date());
             user.setNikeName(user.getEmail());
             shyUserMapper.insertShyUser(user);
+            shyUserMapper.follow(user.getId(),user.getId(),3);
             return user;
         }else{
             throw new Exception("此邮箱已被注册");

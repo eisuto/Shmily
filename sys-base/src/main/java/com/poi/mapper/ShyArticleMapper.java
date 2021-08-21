@@ -3,7 +3,9 @@ package com.poi.mapper;
 import java.util.List;
 
 import com.poi.domain.ShyArticle;
+import com.poi.domain.ShyUser;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,7 +17,30 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShyArticleMapper {
 
-    
+
+    /**
+     * 推文操作 点赞/评论/转发
+     *
+     * @param articleId 微博id
+     * @param userId 操作用户id
+     * @param type 类型
+     * @param comment 评论值
+     * @return
+     */
+    public int operate(
+            @Param("articleId") Integer articleId,
+            @Param("userId") Integer userId,
+            @Param("type") String type,
+            @Param("comment") String comment
+    );
+
+    /**
+     * 查询 用户关注者的推文列表
+     *
+     * @return 推文集合
+     */
+    public List<ShyArticle> selectFollows(ShyUser user);
+
     /**
      * 查询推文
      *
