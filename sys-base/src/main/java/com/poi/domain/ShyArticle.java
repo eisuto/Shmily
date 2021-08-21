@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * 文章对象 shy_article
+ * 推文对象 shy_article
  *
  * @author WangXiang
  * @date 2021-08-13
@@ -18,6 +18,16 @@ public class ShyArticle extends BaseForm {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
+
+    /**
+     * 发推用户id
+     */
+    private Integer userId;
+
+    /**
+     * 标签
+     */
+    private String tab;
 
     /**
      * 内容

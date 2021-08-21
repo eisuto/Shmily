@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.poi.domain.ShyArticle;
 
 /**
- * 文章Service业务层处理
+ * 推文Service业务层处理
  * 
  * @author WangXiang
  * @date 2021-08-13
@@ -22,10 +22,10 @@ public class AdminArticleServiceImpl implements AdminArticleService
     ShyArticleMapper shyArticleMapper;
 
     /**
-     * 查询文章
+     * 查询推文
      * 
-     * @param id 文章ID
-     * @return 文章
+     * @param id 推文ID
+     * @return 推文
      */
     @Override
     public ShyArticle selectShyArticleById(Integer id)
@@ -34,10 +34,10 @@ public class AdminArticleServiceImpl implements AdminArticleService
     }
 
     /**
-     * 查询文章列表
+     * 查询推文列表
      * 
-     * @param shyArticle 文章
-     * @return 文章
+     * @param shyArticle 推文
+     * @return 推文
      */
     @Override
     public List<ShyArticle> selectShyArticleList(ShyArticle shyArticle)
@@ -46,9 +46,9 @@ public class AdminArticleServiceImpl implements AdminArticleService
     }
 
     /**
-     * 新增文章
+     * 新增推文
      * 
-     * @param shyArticle 文章
+     * @param shyArticle 推文
      * @return 结果
      */
     @Override
@@ -59,9 +59,9 @@ public class AdminArticleServiceImpl implements AdminArticleService
     }
 
     /**
-     * 修改文章
+     * 修改推文
      * 
-     * @param shyArticle 文章
+     * @param shyArticle 推文
      * @return 结果
      */
     @Override
@@ -71,9 +71,9 @@ public class AdminArticleServiceImpl implements AdminArticleService
     }
 
     /**
-     * 批量删除文章
+     * 批量删除推文
      * 
-     * @param ids 需要删除的文章ID
+     * @param ids 需要删除的推文ID
      * @return 结果
      */
     @Override
@@ -83,9 +83,9 @@ public class AdminArticleServiceImpl implements AdminArticleService
     }
 
     /**
-     * 删除文章信息
+     * 删除推文信息
      * 
-     * @param id 文章ID
+     * @param id 推文ID
      * @return 结果
      */
     @Override

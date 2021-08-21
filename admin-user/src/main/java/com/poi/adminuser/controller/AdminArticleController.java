@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.poi.domain.ShyArticle;
 
 /**
- * 文章Controller
+ * 推文Controller
  * 
  * @author WangXiang
  * @date 2021-08-13
@@ -32,7 +32,7 @@ public class AdminArticleController
     AdminArticleService shyArticleService;
 
     /**
-     * 查询文章列表
+     * 查询推文列表
      */
     
     @PostMapping("/list")
@@ -45,7 +45,7 @@ public class AdminArticleController
     
 
     /**
-     * 获取文章详细信息
+     * 获取推文详细信息
      */
     
     @GetMapping(value = "/{id}")
@@ -55,7 +55,7 @@ public class AdminArticleController
     }
 
     /**
-     * 新增文章
+     * 新增推文
      */
     
     
@@ -66,7 +66,7 @@ public class AdminArticleController
     }
 
     /**
-     * 修改文章
+     * 修改推文
      */
     
     
@@ -77,7 +77,7 @@ public class AdminArticleController
     }
 
     /**
-     * 删除文章
+     * 删除推文
      */
     
     

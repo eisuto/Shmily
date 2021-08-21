@@ -5,33 +5,49 @@
 <mapper namespace="com.poi.mapper.ShyArticleMapper">
 
     <resultMap type="ShyArticle" id="ShyArticleResult">
-        <result property="id"    column="id"    />
-        <result property="info"    column="info"    />
-        <result property="collectNum"    column="collect_num"    />
-        <result property="commentNum"    column="comment_num"    />
-        <result property="transpondNum"    column="transpond_num"    />
-        <result property="loveNum"    column="love_num"    />
-        <result property="hot"    column="hot"    />
-        <result property="status"    column="status"    />
-        <result property="createTime"    column="create_time"    />
-        <result property="delFlag"    column="del_flag"    />
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="tab" column="tab"/>
+        <result property="info" column="info"/>
+        <result property="collectNum" column="collect_num"/>
+        <result property="commentNum" column="comment_num"/>
+        <result property="transpondNum" column="transpond_num"/>
+        <result property="loveNum" column="love_num"/>
+        <result property="hot" column="hot"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="delFlag" column="del_flag"/>
     </resultMap>
 
     <sql id="selectShyArticleVo">
-        select id, info, collect_num, comment_num, transpond_num, love_num, hot, status, create_time, del_flag from shy_article
+        select id,
+               user_id,
+               tab,
+               info,
+               collect_num,
+               comment_num,
+               transpond_num,
+               love_num,
+               hot,
+               status,
+               create_time,
+               del_flag
+        from shy_article
     </sql>
 
     <select id="selectShyArticleList" parameterType="ShyArticle" resultMap="ShyArticleResult">
         <include refid="selectShyArticleVo"/>
         <where>
-            <if test="id != null "> and id = #{id}</if>
-            <if test="info != null  and info != ''"> and info = #{info}</if>
-            <if test="collectNum != null "> and collect_num = #{collectNum}</if>
-            <if test="commentNum != null "> and comment_num = #{commentNum}</if>
-            <if test="transpondNum != null "> and transpond_num = #{transpondNum}</if>
-            <if test="loveNum != null "> and love_num = #{loveNum}</if>
-            <if test="hot != null "> and hot = #{hot}</if>
-            <if test="status != null "> and status = #{status}</if>
+            <if test="id != null ">and id = #{id}</if>
+            <if test="userId != null ">and user_id = #{userId}</if>
+            <if test="tab != null ">and tab = #{tab}</if>
+            <if test="info != null  and info != ''">and info = #{info}</if>
+            <if test="collectNum != null ">and collect_num = #{collectNum}</if>
+            <if test="commentNum != null ">and comment_num = #{commentNum}</if>
+            <if test="transpondNum != null ">and transpond_num = #{transpondNum}</if>
+            <if test="loveNum != null ">and love_num = #{loveNum}</if>
+            <if test="hot != null ">and hot = #{hot}</if>
+            <if test="status != null ">and status = #{status}</if>
             <if test="keyWord != null and keyWord !=''">
                 AND CONCAT(id,info) LIKE CONCAT('%',#{keyWord},'%')
             </if>
@@ -47,6 +63,8 @@
         insert into shy_article
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="tab != null">tab,</if>
             <if test="info != null">info,</if>
             <if test="collectNum != null">collect_num,</if>
             <if test="commentNum != null">comment_num,</if>
@@ -59,6 +77,8 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="tab != null">#{tab},</if>
             <if test="info != null">#{info},</if>
             <if test="collectNum != null">#{collectNum},</if>
             <if test="commentNum != null">#{commentNum},</if>
@@ -75,6 +95,8 @@
         update shy_article
         <trim prefix="SET" suffixOverrides=",">
             <if test="info != null">info = #{info},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="tab != null">tab = #{tab},</if>
             <if test="collectNum != null">collect_num = #{collectNum},</if>
             <if test="commentNum != null">comment_num = #{commentNum},</if>
             <if test="transpondNum != null">transpond_num = #{transpondNum},</if>
@@ -88,7 +110,9 @@
     </update>
 
     <delete id="deleteShyArticleById" parameterType="Integer">
-        delete from shy_article where id = #{id}
+        delete
+        from shy_article
+        where id = #{id}
     </delete>
 
     <delete id="deleteShyArticleByIds" parameterType="String">
