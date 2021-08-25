@@ -25,6 +25,29 @@ public class ShyArticleController {
         this.articleService = articleService;
     }
 
+
+    /**
+     * 评论列表
+     * @param article
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/comments")
+    public Result comments(ShyArticle article) throws Exception {
+        return Result.success(articleService.comments(article));
+    }
+
+    /**
+     * 评论
+     * @param article
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/comment")
+    public Result comment(ShyArticle article) throws Exception {
+        return Result.success(articleService.comment(article));
+    }
+
     /**
      * 点赞
      * @param article
@@ -34,6 +57,17 @@ public class ShyArticleController {
     @PostMapping("/like")
     public Result like(ShyArticle article) throws Exception {
         return Result.success(articleService.like(article));
+    }
+
+    /**
+     * 取消点赞
+     * @param article
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/unLike")
+    public Result unLike(ShyArticle article) throws Exception {
+        return Result.success(articleService.unLike(article));
     }
 
     /**

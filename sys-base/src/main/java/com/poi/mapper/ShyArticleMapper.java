@@ -17,6 +17,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShyArticleMapper {
 
+    /**
+     * 获取一个推文的全部评论
+     * @return
+     */
+    public List<ShyArticle> comments(ShyArticle article);
+
+
+    /**
+     * 查询用户 点赞/评论/转发过的推文列表
+     * @param user
+     * @return
+     */
+    public List<ShyArticle> operateByUser(ShyUser user);
+
+    /**
+     * 取消点赞
+     * @param article
+     */
+    public int unLike(ShyArticle article);
 
     /**
      * 推文操作 点赞/评论/转发

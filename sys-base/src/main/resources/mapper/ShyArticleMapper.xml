@@ -20,6 +20,9 @@
         <!--        包含的用户信息-->
         <result property="avatarUrl" column="avatar_url"/>
         <result property="nikeName" column="nike_name"/>
+<!--        用户对推文操作的信息-->
+        <result property="type" column="type"/>
+        <result property="comment" column="comment"/>
 
 
     </resultMap>
@@ -59,6 +62,41 @@
         </where>
     </select>
 
+    <select id="comments" parameterType="ShyArticle" resultMap="ShyArticleResult">
+        SELECT
+            u.avatar_url,
+            u.nike_name,
+            ao.comment,
+            u.id
+        FROM
+            `shy_article_operate` ao
+                LEFT JOIN `shy_article` a ON ao.article_id = a.id
+                LEFT JOIN `shy_user` u ON ao.user_id = u.id
+        WHERE
+            ao.article_id = #{id}
+          AND ( ao.`type` = 'comment')
+        ORDER BY
+            a.create_time DESC
+    </select>
+
+
+    <select id="operateByUser" parameterType="ShyUser" resultMap="ShyArticleResult">
+        SELECT
+            a.id,
+            ao.type
+        FROM
+            `shy_article` a
+                INNER JOIN `shy_article_operate` ao ON a.id = ao.article_id
+        WHERE
+            ao.user_id = #{id}
+    </select>
+
+    <delete id="unLike"  parameterType="ShyArticle" >
+        delete
+        from shy_article_operate
+        where user_id = #{userId} and article_id = #{id}
+    </delete>
+
     <insert id="operate">
         insert into shy_article_operate
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -91,7 +129,7 @@
                  LEFT JOIN `shy_user` u ON a.user_id = u.id
         WHERE ur.user_id = #{id}
           AND (ur.`status` = 2 OR ur.`status` = 3)
-        ORDER BY a.create_time ASC
+        ORDER BY a.create_time DESC
     </select>
 
 

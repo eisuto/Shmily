@@ -17,6 +17,32 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class ShyArticle extends BaseForm {
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 评论标记
+     */
+    private int commented;
+
+
+    /**
+     * 转发标记
+     */
+    private int traned;
+
+    /**
+     * 点赞标记
+     */
+    private int liked;
+
+    /**
+     * 评论
+     */
+    private String comment;
+
+    /**
+     * 用户操作类型
+     */
+    private String type;
+
 
     /**
      * 发推者 头像地址
