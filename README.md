@@ -8,7 +8,7 @@ See How Much I Love You.
 ## 技术栈（后端）
 | 技术  | 作用 | 版本 |
 | ------------- | ------------- | ---- |
-| Spring Boot  | 简化Spring开发 | 版本 |
+| Spring Boot  | 简化开发 | default |
 | Spring Cloud OAuth2 | 安全控制  | default |
 | Spring Cloud Stream | 数据流操作 | default |
 | Spring Cloud Sleuth | 日志追踪 | default |
