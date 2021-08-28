@@ -67,6 +67,7 @@
             u.avatar_url,
             u.nike_name,
             ao.comment,
+            ao.create_time,
             u.id
         FROM
             `shy_article_operate` ao
@@ -76,7 +77,7 @@
             ao.article_id = #{id}
           AND ( ao.`type` = 'comment')
         ORDER BY
-            a.create_time DESC
+            a.create_time
     </select>
 
 
@@ -104,12 +105,14 @@
             <if test="userId != null">user_id,</if>
             <if test="type != null">type,</if>
             <if test="comment != null">comment,</if>
+            create_time,
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="articleId != null">#{articleId},</if>
             <if test="userId != null">#{userId},</if>
             <if test="type != null">#{type},</if>
             <if test="comment != null">#{comment},</if>
+            now(),
         </trim>
     </insert>
 

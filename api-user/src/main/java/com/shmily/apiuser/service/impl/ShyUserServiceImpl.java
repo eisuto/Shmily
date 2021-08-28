@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.poi.base.TempCache;
+import com.poi.domain.ShyArticle;
 import com.poi.domain.ShyUser;
 import com.poi.mapper.ShyUserMapper;
 import com.poi.uitls.StringUtils;
