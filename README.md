@@ -5,6 +5,8 @@ See How Much I Love You.
 [![](https://img.shields.io/badge/build-passing-brightgreen)](#)
 ## 概述
 本项目为类微博式微服务架构社交媒体网站。毕业设计项目。
+前端：[用户侧](https://github.com/eisuto/Shmily-view)
+[管理侧](https://github.com/eisuto/Shmily-admin)
 ## 技术栈（后端）
 | 技术  | 作用 | 版本 |
 | ------------- | ------------- | ---- |
