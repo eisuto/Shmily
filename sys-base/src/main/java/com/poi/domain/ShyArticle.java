@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 推文对象 shy_article
@@ -58,6 +59,11 @@ public class ShyArticle extends BaseForm {
      * id
      */
     private Integer id;
+
+    /**
+     * base64 编码的图片
+     */
+    private String img;
 
     /**
      * 发推/点赞/评论/转发 用户id
