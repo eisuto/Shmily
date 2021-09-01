@@ -13,7 +13,6 @@ spring:
 #    url: jdbc:mysql://82.156.231.128:3306/shmily?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
 #    username: root
 #    password: Waabd!23
-    # Hikari
     hikari:
       connection-timeout: 10000
       validation-timeout: 3000
@@ -45,3 +44,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8000/eureka
+
+# Nginx
+nginx:
+  path: C:\Users\eisut\Downloads

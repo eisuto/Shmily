@@ -16,12 +16,15 @@ import org.springframework.web.multipart.MultipartFile;
 public class ShyFileController {
     @Autowired
     ShyFileService fileService;
-    @ApiOperation(value = "上传", notes = "手机号、邮箱、用户名均可")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "files", value = "1", required = true),
-    })
+
+    /**
+     * 图片上传
+     * @param files
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/upload")
-    public Result upload(@RequestParam("files") MultipartFile[] files) throws Exception{
+    public Result upload(@RequestParam("file") MultipartFile[] files) throws Exception{
         return Result.success(fileService.upload(files));
     }
 }

@@ -48,5 +48,10 @@ public class BaseForm {
      */
     private Integer delFlag;
 
+    /**
+     * 是否是图片查询模式
+     */
+    private boolean imgQuery;
+
 
 }

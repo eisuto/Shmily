@@ -17,8 +17,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShyArticleMapper {
 
+
+    /**
+     * 保存图片地址
+     *
+     * @return
+     */
+    public int insertImage(@Param("id") Integer id, @Param("imgUrl") String imgUrl);
+
     /**
      * 获取一个推文的全部评论
+     *
      * @return
      */
     public List<ShyArticle> comments(ShyArticle article);
@@ -26,6 +35,7 @@ public interface ShyArticleMapper {
 
     /**
      * 查询用户 点赞/评论/转发过的推文列表
+     *
      * @param user
      * @return
      */
@@ -33,6 +43,7 @@ public interface ShyArticleMapper {
 
     /**
      * 取消点赞
+     *
      * @param article
      */
     public int unLike(ShyArticle article);
@@ -41,9 +52,9 @@ public interface ShyArticleMapper {
      * 推文操作 点赞/评论/转发
      *
      * @param articleId 微博id
-     * @param userId 操作用户id
-     * @param type 类型
-     * @param comment 评论值
+     * @param userId    操作用户id
+     * @param type      类型
+     * @param comment   评论值
      * @return
      */
     public int operate(

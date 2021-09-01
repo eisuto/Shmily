@@ -7,6 +7,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 /**
  * 推文对象 shy_article
  *
@@ -22,7 +24,6 @@ public class ShyArticle extends BaseForm {
      * 评论标记
      */
     private int commented;
-
 
     /**
      * 转发标记
@@ -61,9 +62,19 @@ public class ShyArticle extends BaseForm {
     private Integer id;
 
     /**
-     * base64 编码的图片
+     * 上传的图片地址
      */
-    private String img;
+    private String[] uploadImgUrls;
+
+    /**
+     * 包含的图片地址
+     */
+    private List<String> imgUrls;
+
+    /**
+     * 单个的图片地址
+     */
+    private String url;
 
     /**
      * 发推/点赞/评论/转发 用户id

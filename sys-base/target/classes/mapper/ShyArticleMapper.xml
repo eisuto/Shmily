@@ -20,7 +20,7 @@
         <!--        包含的用户信息-->
         <result property="avatarUrl" column="avatar_url"/>
         <result property="nikeName" column="nike_name"/>
-<!--        用户对推文操作的信息-->
+        <!--        用户对推文操作的信息-->
         <result property="type" column="type"/>
         <result property="comment" column="comment"/>
 
@@ -62,40 +62,40 @@
         </where>
     </select>
 
+    <insert id="insertImage">
+        insert into shy_article_resources(article_id, url)
+        values (#{id}, #{imgUrl})
+    </insert>
+
+
     <select id="comments" parameterType="ShyArticle" resultMap="ShyArticleResult">
-        SELECT
-            u.avatar_url,
-            u.nike_name,
-            ao.comment,
-            ao.create_time,
-            u.id
-        FROM
-            `shy_article_operate` ao
-                LEFT JOIN `shy_article` a ON ao.article_id = a.id
-                LEFT JOIN `shy_user` u ON ao.user_id = u.id
-        WHERE
-            ao.article_id = #{id}
-          AND ( ao.`type` = 'comment')
-        ORDER BY
-            a.create_time
+        SELECT u.avatar_url,
+               u.nike_name,
+               ao.comment,
+               ao.create_time,
+               u.id
+        FROM `shy_article_operate` ao
+                 LEFT JOIN `shy_article` a ON ao.article_id = a.id
+                 LEFT JOIN `shy_user` u ON ao.user_id = u.id
+        WHERE ao.article_id = #{id}
+          AND (ao.`type` = 'comment')
+        ORDER BY a.create_time
     </select>
 
 
     <select id="operateByUser" parameterType="ShyUser" resultMap="ShyArticleResult">
-        SELECT
-            a.id,
-            ao.type
-        FROM
-            `shy_article` a
-                INNER JOIN `shy_article_operate` ao ON a.id = ao.article_id
-        WHERE
-            ao.user_id = #{id}
+        SELECT a.id,
+               ao.type
+        FROM `shy_article` a
+                 INNER JOIN `shy_article_operate` ao ON a.id = ao.article_id
+        WHERE ao.user_id = #{id}
     </select>
 
-    <delete id="unLike"  parameterType="ShyArticle" >
+    <delete id="unLike" parameterType="ShyArticle">
         delete
         from shy_article_operate
-        where user_id = #{userId} and article_id = #{id}
+        where user_id = #{userId}
+          and article_id = #{id}
     </delete>
 
     <insert id="operate">
@@ -127,9 +127,11 @@
                a.transpond_num,
                a.love_num,
                a.create_time
+        <if test="imgQuery != null and imgQuery!=''">,ar.url</if>
         FROM `shy_user_relation` ur
-                 LEFT JOIN `shy_article` a ON ur.operate_id = a.user_id
-                 LEFT JOIN `shy_user` u ON a.user_id = u.id
+                 INNER JOIN `shy_article` a ON ur.operate_id = a.user_id
+                 INNER JOIN `shy_user` u ON a.user_id = u.id
+        <if test="imgQuery != null and imgQuery!=''">INNER JOIN `shy_article_resources` ar ON a.id = ar.article_id</if>
         WHERE ur.user_id = #{id}
           AND (ur.`status` = 2 OR ur.`status` = 3)
         ORDER BY a.create_time DESC
@@ -141,7 +143,7 @@
         where id = #{id}
     </select>
 
-    <insert id="insertShyArticle" parameterType="ShyArticle">
+    <insert id="insertShyArticle" parameterType="ShyArticle" useGeneratedKeys="true" keyProperty="id">
         insert into shy_article
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>

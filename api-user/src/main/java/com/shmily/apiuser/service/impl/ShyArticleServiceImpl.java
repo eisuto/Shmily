@@ -10,6 +10,7 @@ import com.shmily.apiuser.service.ShyArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -92,9 +93,15 @@ public class ShyArticleServiceImpl implements ShyArticleService {
      */
     @Override
     public int send(ShyArticle article) throws Exception {
-
         article.setCreateTime(DateUtils.getNowDate());
-        return articleMapper.insertShyArticle(article);
+        articleMapper.insertShyArticle(article);
+        // 保存图片
+        if(StringUtils.isNotEmpty(article.getUploadImgUrls())) {
+            for (String imgUrl : article.getUploadImgUrls()) {
+                articleMapper.insertImage(article.getId(), imgUrl);
+            }
+        }
+        return 1;
     }
 
     /**
@@ -106,12 +113,28 @@ public class ShyArticleServiceImpl implements ShyArticleService {
      */
     @Override
     public List<ShyArticle> follows(ShyUser user) throws Exception {
+        // 有关的推文
         List<ShyArticle> articles = articleMapper.selectFollows(user);
         articles.removeAll(Collections.singleton(null));
-        // 此用户操作过的推文
+
+        // 此用户操作过的推文，着色
         List<ShyArticle> operates = articleMapper.operateByUser(user);
 
+        user.setImgQuery(true);
+        // 有关的推文图片
+        List<ShyArticle> imgs = articleMapper.selectFollows(user);
+
         for (ShyArticle article : articles) {
+            for (ShyArticle img : imgs) {
+                if(article.getId().equals(img.getId())){
+                    List<String> urls = article.getImgUrls();
+                    if(urls == null){
+                        urls = new ArrayList<>();
+                    }
+                    urls.add(img.getUrl());
+                    article.setImgUrls(urls);
+                }
+            }
             for (ShyArticle operate : operates) {
                 if (article.getId().equals(operate.getId())) {
                     if (StringUtils.equals(operate.getType(), "like")) {
