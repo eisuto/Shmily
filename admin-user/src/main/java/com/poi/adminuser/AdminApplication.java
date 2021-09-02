@@ -8,10 +8,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("com.poi.mapper")
-public class AdminUserApplication {
+public class AdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminUserApplication.class, args);
+        SpringApplication.run(AdminApplication.class, args);
     }
 
 }
