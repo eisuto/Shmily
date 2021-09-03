@@ -53,3 +53,4 @@ eureka:
 # Nginx
 nginx:
   path: C:\Users\eisut\Downloads
+#  path: /wenwen/view
