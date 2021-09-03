@@ -1,10 +1,10 @@
-package com.poi.eurekaproducer;
+package com.shmily.apiuser;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaProducerApplicationTests {
+class UserApplicationTests {
 
     @Test
     void contextLoads() {
