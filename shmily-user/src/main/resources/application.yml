@@ -1,55 +1,55 @@
-# 用户侧 用户服务
-server:
-  port: 8001
-spring:
-  application:
-    name: api-user
-  # 数据库
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shmily?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: 233333
-#    url: jdbc:mysql://82.156.231.128:3306/shmily?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+## 用户侧 用户服务
+#server:
+#  port: 8001
+#spring:
+#  application:
+#    name: user
+#  # 数据库
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/shmily?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
 #    username: root
-#    password: Waabd!23
-    hikari:
-      connection-timeout: 10000
-      validation-timeout: 3000
-      idle-timeout: 60000
-      login-timeout: 5
-      max-lifetime: 60000
-      maximum-pool-size: 10
-      minimum-idle: 5
-      read-only: false
-  # 上传文件大小
-  servlet:
-    multipart:
-      max-file-size: 20MB
-      max-request-size: 20MB
-  # json
-  jackson:
-    # 不返回null
-    default-property-inclusion: non_null
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-    serialization:
-      write-dates-as-timestamps: false
-
-# mybatis配置
-mybatis:
-  mapper-locations: classpath:/mapper/*.xml    # mapper映射文件位置
-  type-aliases-package: com.poi.domain   # 实体类所在的位置
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #用于控制台打印sql语句
-
-
-# 注册中心
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka
-
-# Nginx
-nginx:
-  path: C:\Users\eisut\Downloads
+#    password: 233333
+##    url: jdbc:mysql://82.156.231.128:3306/shmily?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+##    username: root
+##    password: Waabd!23
+#    hikari:
+#      connection-timeout: 10000
+#      validation-timeout: 3000
+#      idle-timeout: 60000
+#      login-timeout: 5
+#      max-lifetime: 60000
+#      maximum-pool-size: 10
+#      minimum-idle: 5
+#      read-only: false
+#  # 上传文件大小
+#  servlet:
+#    multipart:
+#      max-file-size: 20MB
+#      max-request-size: 20MB
+#  # json
+#  jackson:
+#    # 不返回null
+#    default-property-inclusion: non_null
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+#    serialization:
+#      write-dates-as-timestamps: false
+#
+## mybatis配置
+#mybatis:
+#  mapper-locations: classpath:/mapper/*.xml    # mapper映射文件位置
+#  type-aliases-package: com.poi.domain   # 实体类所在的位置
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #用于控制台打印sql语句
+#
+#
+## 注册中心
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8000/eureka
+#
+## Nginx
+#nginx:
+#  path: C:\Users\eisut\Downloads

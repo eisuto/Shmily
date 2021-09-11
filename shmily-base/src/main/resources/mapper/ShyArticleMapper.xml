@@ -46,20 +46,17 @@
     <select id="selectShyArticleList" parameterType="ShyArticle" resultMap="ShyArticleResult">
         <include refid="selectShyArticleVo"/>
         <where>
-            <if test="id != null ">and id = #{id}</if>
-            <if test="userId != null ">and user_id = #{userId}</if>
-            <if test="tab != null ">and tab = #{tab}</if>
-            <if test="info != null  and info != ''">and info = #{info}</if>
-            <if test="collectNum != null ">and collect_num = #{collectNum}</if>
-            <if test="commentNum != null ">and comment_num = #{commentNum}</if>
-            <if test="transpondNum != null ">and transpond_num = #{transpondNum}</if>
-            <if test="loveNum != null ">and love_num = #{loveNum}</if>
-            <if test="hot != null ">and hot = #{hot}</if>
-            <if test="status != null ">and status = #{status}</if>
             <if test="keyWord != null and keyWord !=''">
                 AND CONCAT(id,info) LIKE CONCAT('%',#{keyWord},'%')
             </if>
         </where>
+        order by create_time desc
+
+    </select>
+
+    <select id="imgList" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select url from shy_article_resources
+        where article_id = #{id}
     </select>
 
     <insert id="insertImage">

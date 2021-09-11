@@ -1,0 +1,21 @@
+# 云对象存储服务
+server:
+  port: 8003
+spring:
+  tengxun:
+    accessKey:
+  application:
+    name: cos-server
+  # json
+  jackson:
+    # 不返回null
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+# 注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka

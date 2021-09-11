@@ -1,6 +1,7 @@
 package com.shmily.apiuser.service.impl;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.poi.base.TempCache;
@@ -33,6 +34,8 @@ public class ShyUserServiceImpl implements ShyUserService
      */
     @Override
     public ShyUser login(ShyUser user) {
+//        LinkedList api = new LinkedList();
+//        api.add
         return shyUserMapper.login(user);
     }
 

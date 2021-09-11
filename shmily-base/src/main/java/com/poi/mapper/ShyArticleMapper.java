@@ -17,6 +17,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ShyArticleMapper {
 
+    /**
+     * 推文图片列表
+     * @param id
+     * @return
+     */
+    public List<String> imgList(@Param("id") Integer id);
 
     /**
      * 保存图片地址

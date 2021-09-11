@@ -11,86 +11,84 @@ import com.poi.domain.ShyArticle;
 
 /**
  * 推文Service业务层处理
- * 
+ *
  * @author WangXiang
  * @date 2021-08-13
  */
 @Service
-public class AdminArticleServiceImpl implements AdminArticleService
-{
+public class AdminArticleServiceImpl implements AdminArticleService {
     @Autowired
     ShyArticleMapper shyArticleMapper;
 
     /**
      * 查询推文
-     * 
+     *
      * @param id 推文ID
      * @return 推文
      */
     @Override
-    public ShyArticle selectShyArticleById(Integer id)
-    {
+    public ShyArticle selectShyArticleById(Integer id) {
         return shyArticleMapper.selectShyArticleById(id);
     }
 
     /**
      * 查询推文列表
-     * 
+     *
      * @param shyArticle 推文
      * @return 推文
      */
     @Override
-    public List<ShyArticle> selectShyArticleList(ShyArticle shyArticle)
-    {
-        return shyArticleMapper.selectShyArticleList(shyArticle);
+    public List<ShyArticle> selectShyArticleList(ShyArticle shyArticle) {
+        List<ShyArticle> list = shyArticleMapper.selectShyArticleList(shyArticle);
+        for (ShyArticle article : list) {
+            List<String> imgs = shyArticleMapper.imgList(article.getId());
+            article.setImgUrls(imgs);
+        }
+        return list;
     }
 
     /**
      * 新增推文
-     * 
+     *
      * @param shyArticle 推文
      * @return 结果
      */
     @Override
-    public int insertShyArticle(ShyArticle shyArticle)
-    {
+    public int insertShyArticle(ShyArticle shyArticle) {
         shyArticle.setCreateTime(DateUtils.getNowDate());
         return shyArticleMapper.insertShyArticle(shyArticle);
     }
 
     /**
      * 修改推文
-     * 
+     *
      * @param shyArticle 推文
      * @return 结果
      */
     @Override
-    public int updateShyArticle(ShyArticle shyArticle)
-    {
+    public int updateShyArticle(ShyArticle shyArticle) {
         return shyArticleMapper.updateShyArticle(shyArticle);
     }
 
     /**
      * 批量删除推文
-     * 
+     *
      * @param ids 需要删除的推文ID
      * @return 结果
      */
     @Override
-    public int deleteShyArticleByIds(Integer[] ids)
-    {
+    public int deleteShyArticleByIds(Integer[] ids) {
         return shyArticleMapper.deleteShyArticleByIds(ids);
     }
 
     /**
      * 删除推文信息
-     * 
+     *
      * @param id 推文ID
      * @return 结果
      */
     @Override
-    public int deleteShyArticleById(Integer id)
-    {
+    public int deleteShyArticleById(Integer id) {
         return shyArticleMapper.deleteShyArticleById(id);
     }
 }
