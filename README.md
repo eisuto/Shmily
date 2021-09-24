@@ -13,17 +13,12 @@ See How Much I Love You.
 | Spring Boot  | 简化开发 | default |
 | Spring Cloud OAuth2 | 安全控制  | default |
 | Spring Cloud Stream | 数据流操作 | default |
-| Spring Cloud Sleuth | 日志追踪 | default |
-| Spring Cloud Config | 服务配置 | default |
-| Turbine | 聚合监控 | default |
-| Eureka  | 服务发现  | default |
-| Zuul  | 服务网关  | default |
+| Nacos| 服务配置 | default |
+| Nacos  | 服务发现  | default |
 | Feign  | 服务间通信  | v2.2.0 |
-| Hystrix  | 服务熔断  | default |
 | Docker  | 服务部署  | default |
 | Mybatis  | 数据持久化  | default |
 | Mysql  | 数据存储  | default |
-| MongoDB  | 数据存储  | default |
 | Redis  | 数据缓存  | default |
 | Elasticsearch  | 搜索  | default |
 | Kafka  | 数据传输  | default |

@@ -2,7 +2,7 @@ spring:
   main:
     allow-bean-definition-overriding: true
   application:
-    name: admin
+    name: cos
   cloud:
     nacos:
       config:

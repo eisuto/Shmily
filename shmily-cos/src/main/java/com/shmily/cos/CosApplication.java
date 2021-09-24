@@ -3,11 +3,14 @@ package com.shmily.cos;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author eisuto
+ */
 @SpringBootApplication
-public class ShmilyCosApplication {
+public class CosApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ShmilyCosApplication.class, args);
+        SpringApplication.run(CosApplication.class, args);
     }
 
 }
