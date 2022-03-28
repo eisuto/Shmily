@@ -3,13 +3,16 @@ package com.shmily.apiuser.service.impl;
 import com.poi.domain.ShyArticle;
 import com.poi.domain.ShyUser;
 import com.poi.mapper.ShyArticleMapper;
+import com.poi.mapper.ShyResourcesMapper;
 import com.poi.mapper.ShyUserMapper;
 import com.poi.uitls.DateUtils;
 import com.poi.uitls.StringUtils;
+import com.shmily.apiuser.rpc.FileServiceApi;
 import com.shmily.apiuser.service.ShyArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,12 +20,18 @@ import java.util.List;
 @Service
 public class ShyArticleServiceImpl implements ShyArticleService {
 
-    @Autowired
+    @Resource
     ShyArticleMapper articleMapper;
 
-    @Autowired
+    @Resource
     ShyUserMapper shyUserMapper;
 
+
+    @Resource
+    FileServiceApi fileServiceApi;
+
+    @Resource
+    ShyResourcesMapper resourcesMapper;
 
     /**
      * 获取一个推文的全部评论
@@ -95,10 +104,12 @@ public class ShyArticleServiceImpl implements ShyArticleService {
     public int send(ShyArticle article) throws Exception {
         article.setCreateTime(DateUtils.getNowDate());
         articleMapper.insertShyArticle(article);
-        // 保存图片
+        fileServiceApi.uploadCos(null);
+        // 保存图片信息
         if(StringUtils.isNotEmpty(article.getUploadImgUrls())) {
             for (String imgUrl : article.getUploadImgUrls()) {
-                articleMapper.insertImage(article.getId(), imgUrl);
+                resourcesMapper.insertImage(article.getId(), imgUrl);
+//                articleMapper.insertImage(article.getId(), imgUrl);
             }
         }
         return 1;

@@ -2,9 +2,6 @@ package com.shmily.apiuser.controller;
 
 import com.poi.base.Result;
 import com.shmily.apiuser.service.ShyFileService;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +21,7 @@ public class ShyFileController {
      * @throws Exception
      */
     @RequestMapping("/upload")
-    public Result upload(@RequestParam("file") MultipartFile[] files) throws Exception{
+    public Result upload(@RequestParam("file") MultipartFile[] files ) throws Exception{
         return Result.success(fileService.upload(files));
     }
 }

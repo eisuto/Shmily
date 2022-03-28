@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  * @author WangXiang
  * @date 2021-08-13
  */
-@Repository
+@Mapper
 public interface ShyArticleMapper {
 
     /**

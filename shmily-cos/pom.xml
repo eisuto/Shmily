@@ -31,7 +31,7 @@
         <!--        系统基础包-->
         <dependency>
             <groupId>com.shmily</groupId>
-            <artifactId>sys-base</artifactId>
+            <artifactId>shmily-base</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
